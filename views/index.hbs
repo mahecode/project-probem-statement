@@ -1,0 +1,43 @@
+
+<div class="container">
+        <h1>Welcome to web scraping</h1>
+        <br><br>
+        <div class="form-group">
+            <form method="GET" action="/search">
+                <input type="text" name="search" class="form-control" placeholder="Enter any engineering field like ce,it,ec,civil">
+                <br>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+  </div>
+  {{# if alert }}
+  <div class="alert alert-danger" role="alert">
+  {{msg}}
+</div>
+{{/if}}
+  {{# if length }}
+  <div class="table-responsive">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Sr No.</th>
+            <th scope="col">Problem Id</th>
+            <th scope="col">Problem statement</th>
+            <th scope="col">Type of Industry</th>
+            <th scope="col">Relevant Discipline</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{# each rawData }}
+          <tr>
+            <th scope="row">{{ this.SrNo }}</th>
+            <td>{{ this.ProblemID }}</td>
+            <td>{{ this.ProblemStatement }}</td>
+            <td>{{ this.TypeofIndustry }}</td>
+            <td>{{ this.RelevantDiscipline }}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+  </div>
+{{/if}}
+</div>
